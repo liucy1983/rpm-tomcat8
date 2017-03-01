@@ -1,14 +1,3 @@
-# To Build:
-#
-# sudo yum -y install rpmdevtools && rpmdev-setuptree
-#
-# wget https://raw.github.com/nmilford/rpm-tomcat8/master/tomcat8.spec -O ~/rpmbuild/SPECS/tomcat8.spec
-# wget https://raw.github.com/nmilford/rpm-tomcat8/master/tomcat8.init -O ~/rpmbuild/SOURCES/tomcat8.init
-# wget https://raw.github.com/nmilford/rpm-tomcat8/master/tomcat8.sysconfig -O ~/rpmbuild/SOURCES/tomcat8.sysconfig
-# wget https://raw.github.com/nmilford/rpm-tomcat8/master/tomcat8.logrotate -O ~/rpmbuild/SOURCES/tomcat8.logrotate
-# wget http://www.motorlogy.com/apache/tomcat/tomcat-7/v7.0.55/bin/apache-tomcat-7.0.55.tar.gz -O ~/rpmbuild/SOURCES/apache-tomcat-7.0.55.tar.gz
-# rpmbuild -bb ~/rpmbuild/SPECS/tomcat8.spec
-
 %define __jar_repack %{nil}
 %define tomcat_home /usr/share/tomcat
 %define tomcat_group tomcat
@@ -17,7 +6,7 @@
 %define tomcat_cache_home /var/cache/tomcat
 
 Summary:    Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
-Name:       tomcat8
+Name:       tomcat
 Version:    8.0.41
 BuildArch:  noarch
 Release:    1
