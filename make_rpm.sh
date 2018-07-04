@@ -5,12 +5,7 @@ ARCH=$(grep "BuildArch:" tomcat.spec |cut -d ":" -f2 |tr -d "[:space:]")
 echo "Version: $VERSION-$RELEASE BuildArch: $ARCH"
 
 rm -rf rpmbuild
-mkdir rpmbuild
-mkdir rpmbuild/BUILD
-mkdir rpmbuild/RPMS
-mkdir rpmbuild/SOURCES
-mkdir rpmbuild/SPECS
-mkdir rpmbuild/SRPMS
+mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
 
 wget http://archive.apache.org/dist/tomcat/tomcat-8/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz -O apache-tomcat-$VERSION.tar.gz
 
