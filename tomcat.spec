@@ -7,7 +7,7 @@
 
 Summary:    Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
 Name:       tomcat
-Version:    8.0.41
+Version:    8.5.32
 BuildArch:  noarch
 Release:    1
 License:    Apache Software License
@@ -18,8 +18,8 @@ Source1:    %{name}.init
 Source2:    %{name}.sysconfig
 Source3:    %{name}.logrotate
 Source4:    %{name}.conf
-#Requires:   jdk
-Requires:   jpackage-utils
+Requires:   jdk
+#Requires:   jpackage-utils
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
@@ -60,8 +60,6 @@ rm -f %{buildroot}/%{tomcat_home}/bin/*.bat
 # Remove extra logging configs
 sed -i -e '/^3manager/d' -e '/\[\/manager\]/d' \
     -e '/^4host-manager/d' -e '/\[\/host-manager\]/d' \
-    -e '/^java.util.logging.ConsoleHandler/d' \
-    -e 's/, *java.util.logging.ConsoleHandler//' \
     -e 's/, *4host-manager.org.apache.juli.AsyncFileHandler//' \
     -e 's/, *3manager.org.apache.juli.AsyncFileHandler//' \
     %{buildroot}/%{tomcat_home}/conf/logging.properties
